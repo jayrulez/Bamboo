@@ -32,8 +32,8 @@ namespace Bamboo.Controllers
             if (ModelState.IsValid)
             {
                // model.BirthDate = model.BirthDate.Date;
-                bambooContext.Registrations.Add(model);
-                bambooContext.SaveChanges();
+                //bambooContext.Registrations.Add(model);
+                //bambooContext.SaveChanges();
                 return "done";
             }
 

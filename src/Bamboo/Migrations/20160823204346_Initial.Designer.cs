@@ -8,7 +8,7 @@ using Bamboo.Models;
 namespace Bamboo.Migrations
 {
     [DbContext(typeof(BambooContext))]
-    [Migration("20160823194500_Initial")]
+    [Migration("20160823204346_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -16,31 +16,6 @@ namespace Bamboo.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-            modelBuilder.Entity("Bamboo.Models.RegistrationModel", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<DateTime>("BirthDate");
-
-                    b.Property<string>("Email")
-                        .IsRequired();
-
-                    b.Property<string>("FirstName")
-                        .IsRequired();
-
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .HasColumnType("char(1)");
-
-                    b.Property<string>("LastName")
-                        .IsRequired();
-
-                    b.HasKey("Id");
-
-                    b.ToTable("users");
-                });
 
             modelBuilder.Entity("Bamboo.Models.User", b =>
                 {

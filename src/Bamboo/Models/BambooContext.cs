@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace Bamboo.Models
 {
@@ -12,7 +8,17 @@ namespace Bamboo.Models
             : base(options)
         { }
 
-        public DbSet<RegistrationModel> Registrations { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(@"Server=.\SQLExpress;Database=Bamboo;Trusted_Connection=True;");
+        }
+
         public virtual DbSet<User> Users { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+        }
+
     }
 }
