@@ -23,5 +23,9 @@ namespace Bamboo.Models
         [RegularExpression(@"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")]
         [Required]
         public string Email { get; set; }
+
+        [Column(TypeName = "char(1)")]
+        [Required]
+        public string Gender { get; set; }
     }
 }

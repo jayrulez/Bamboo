@@ -27,7 +27,7 @@ namespace Bamboo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public String Register(RegistrationModel registration)
+        public string Register(RegistrationModel registration)
         {
             if (ModelState.IsValid)
             {

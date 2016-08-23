@@ -8,9 +8,10 @@ using Bamboo.Models;
 namespace Bamboo.Migrations
 {
     [DbContext(typeof(BambooContext))]
-    partial class BambooContextModelSnapshot : ModelSnapshot
+    [Migration("20160823085619_Gender to char in database")]
+    partial class Gendertocharindatabase
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
             modelBuilder
                 .HasAnnotation("ProductVersion", "1.0.0-rtm-21431")
@@ -27,9 +28,7 @@ namespace Bamboo.Migrations
                     b.Property<string>("FirstName")
                         .IsRequired();
 
-                    b.Property<string>("Gender")
-                        .IsRequired()
-                        .HasColumnType("char(1)");
+                    b.Property<char>("Gender");
 
                     b.Property<string>("LastName")
                         .IsRequired();
