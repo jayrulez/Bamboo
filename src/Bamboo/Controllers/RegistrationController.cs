@@ -27,15 +27,16 @@ namespace Bamboo.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public string Register(RegistrationModel registration)
+        public string Register(RegistrationModel model)
         {
             if (ModelState.IsValid)
             {
-               // registration.BirthDate = registration.BirthDate.Date;
-                bambooContext.Registrations.Add(registration);
+               // model.BirthDate = model.BirthDate.Date;
+                bambooContext.Registrations.Add(model);
                 bambooContext.SaveChanges();
                 return "done";
             }
+
             return "error";
         }
     }

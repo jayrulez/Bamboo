@@ -13,5 +13,6 @@ namespace Bamboo.Models
         { }
 
         public DbSet<RegistrationModel> Registrations { get; set; }
+        public virtual DbSet<User> Users { get; set; }
     }
 }

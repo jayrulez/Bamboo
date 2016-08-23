@@ -40,6 +40,24 @@ namespace Bamboo.Migrations
 
                     b.ToTable("users");
                 });
+
+            modelBuilder.Entity("Bamboo.Models.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PasswordHash");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
         }
     }
 }

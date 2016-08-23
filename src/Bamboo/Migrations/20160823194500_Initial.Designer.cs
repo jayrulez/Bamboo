@@ -8,8 +8,8 @@ using Bamboo.Models;
 namespace Bamboo.Migrations
 {
     [DbContext(typeof(BambooContext))]
-    [Migration("20160823135609_Add Birth date to database13")]
-    partial class AddBirthdatetodatabase13
+    [Migration("20160823194500_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -40,6 +40,24 @@ namespace Bamboo.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("users");
+                });
+
+            modelBuilder.Entity("Bamboo.Models.User", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("FirstName");
+
+                    b.Property<string>("LastName");
+
+                    b.Property<string>("PasswordHash");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
         }
     }
