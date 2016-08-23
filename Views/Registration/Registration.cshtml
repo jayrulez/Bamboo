@@ -1,7 +1,33 @@
-﻿@{
+﻿@model Bamboo.Models.RegistrationModel
+
+@{
     ViewData["Title"] = "Registration";
 }
 
 <h2>Registration</h2>
 
-<p>This will be the registration!</p>
+<form asp-action="Register">
+    <div class="form-group">
+        <label for="inputFirstName">First name</label>
+        <input asp-for="FirstName" type="text" class="form-control" id="inputFirstName" placeholder="First Name">
+    </div>
+    <div class="form-group">
+        <label for="inputLastName">Last name</label>
+        <input asp-for="LastName" type="text" class="form-control" id="inputLastName" placeholder="Last Name">
+    </div>
+    <div class="form-group">
+        <label for="inputEmail">Email</label>
+        <input asp-for="Email" type="text" class="form-control" id="inputEmail" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="inputGender">Gender</label>
+        <div class="radio">
+            <label><input type="radio" name="gender">Male</label>
+        </div>
+        <div class="radio">
+            <label><input type="radio" name="gender">Female</label>
+        </div>
+    </div>
+
+        <button type="submit" class="btn btn-default">Register</button>
+</form>

@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Bamboo.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Bamboo
 {
@@ -37,6 +39,9 @@ namespace Bamboo
             services.AddApplicationInsightsTelemetry(Configuration);
 
             services.AddMvc();
+
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=Bamboo;Trusted_Connection=True;";
+            services.AddDbContext<BambooContext>(options => options.UseSqlServer(connection));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
