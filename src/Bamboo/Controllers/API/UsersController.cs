@@ -17,7 +17,7 @@ namespace Bamboo.Controllers.API
         }
 
         [HttpPost, Route("")]
-        public async Task<IActionResult> CreateUserAction(CreateUserViewModel model)
+        public async Task<IActionResult> CreateUserAction([FromBody] CreateUserViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -41,7 +41,7 @@ namespace Bamboo.Controllers.API
                 catch (Exception ex)
                 {
                     // Do not use ex.Message in production
-                    return BadRequest(new ErrorViewModel { Error = Error.InternalError, ErrorDescription = ex.Message });
+                    return BadRequest(new ErrorViewModel { Error = Error.InternalError, ErrorDescription = ex.InnerException.Message });
                 }
             }
             else

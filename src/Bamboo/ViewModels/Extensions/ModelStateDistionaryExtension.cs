@@ -10,6 +10,16 @@ namespace Bamboo.ViewModels.Extensions
     {
         public static string GetFirstError(this ModelStateDictionary source)
         {
+            if(source != null)
+            {
+                foreach (var modelState in source)
+                {
+                    foreach (var error in modelState.Value.Errors)
+                    {
+                        return error.ErrorMessage;
+                    }
+                }
+            }
 
             return string.Empty;
         }
